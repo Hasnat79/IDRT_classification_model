@@ -18,7 +18,7 @@ from tqdm import tqdm
 ## constants
 TRAIN_DIR = "/scratch/user/hasnat.md.abdullah/IDRT_classification_model/data/5 Classification example - TAMU image analytics/data/train" # 5591 images
 VAL_DIR = "/scratch/user/hasnat.md.abdullah/IDRT_classification_model/data/5 Classification example - TAMU image analytics/data/validation" # 859 images
-EPOCHS = 5
+EPOCHS = 50
 
 def train_model(model, train_loader, criterion, optimizer, device, num_epochs=5, checkpoint_path="../checkpoints/baseline_cnn.pth"):
     
@@ -49,20 +49,18 @@ def train_model(model, train_loader, criterion, optimizer, device, num_epochs=5,
             # Update progress bar with current loss and accuracy
             epoch_loss = running_loss / (total/labels.size(0))  # current average loss
             epoch_acc = 100 * correct / total  # current accuracy
-            pbar.set_postfix({'loss': f'{epoch_loss:.4f}', 'accuracy': f'{epoch_acc:.2f}%'})
+            # pbar.set_postfix({'loss': f'{epoch_loss:.4f}', 'accuracy': f'{epoch_acc:.2f}%'})
         
         
         # save checkpooint of the lowest epoch loss
-        if checkpoint_path and epoch_loss < 0.1:
-            if not os.path.exists(checkpoint_path):
-                os.makedirs(checkpoint_path)
-            checkpoint = {
-                'model': model.state_dict(),
-                'optimizer': optimizer.state_dict(),
-                'epoch': epoch
-            }
-            torch.save(checkpoint, os.path.join(checkpoint_path, f'checkpoint_epoch{epoch+1}_loss{epoch_loss:.4f}_acc{epoch_acc:.2f}.pth'))
-            print(f"Checkpoint saved at epoch {epoch+1} with loss: {epoch_loss:.4f}, accuracy: {epoch_acc:.2f}%")
+        # if (epoch+1) %10 ==0:
+        #     checkpoint = {
+        #         'model': model.state_dict(),
+        #         'optimizer': optimizer.state_dict(),
+        #         'epoch': epoch
+        #     }
+        #     torch.save(checkpoint,  f'class6_baseline_checkpoint_epoch{epoch+1}_loss{epoch_loss:.4f}_acc{epoch_acc:.2f}.pth')
+        #     print(f"Checkpoint saved at epoch {epoch+1} with loss: {epoch_loss:.4f}, accuracy: {epoch_acc:.2f}%")
         print(f"Epoch {epoch+1}/{num_epochs} completed - Loss: {epoch_loss:.4f}, Accuracy: {epoch_acc:.2f}%")
 
 def evaluate_model(model, val_loader, device, classes, confusion_matrix_path=""): 
@@ -161,11 +159,17 @@ def main():
       'optimizer': optimizer.state_dict(),
       'epoch': EPOCHS
   }
-  torch.save(checkpoint, f'../checkpoints/baseline_cnn_{EPOCHS}.pth')
+  torch.save(checkpoint, f'../checkpoints/baseline_cnn_{EPOCHS}_class6.pth')
   print("Checkpoint saved")
 
+
+  # --- uncomment to load checkpoint from path
+  # checkpoint = torch.load("/scratch/user/hasnat.md.abdullah/IDRT_classification_model/src/class6_baseline_checkpoint_epoch10_loss0.1382_acc94.56.pth")
+  # model.load_state_dict(checkpoint['model'])
+  # optimizer.load_state_dict(checkpoint['optimizer'])
+
   # Validation
-  accuracy,all_preds, all_labels =  evaluate_model(model, val_loader, device, train_dataset.classes, confusion_matrix_path="../figures/baseline/confusion_matrix.png")
+  accuracy,all_preds, all_labels =  evaluate_model(model, val_loader, device, train_dataset.classes, confusion_matrix_path="../figures/baseline/epoch_50_confusion_matrix_class6.png")
 
   
 if __name__ == "__main__":

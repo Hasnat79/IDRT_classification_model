@@ -8,8 +8,9 @@ class BuildingDataset(Dataset):
     self.root_dir = root_dir
     self.transform = transform
     # self.classes = sorted([d for d in os.listdir(root_dir) if os.path.isdir(os.path.join(root_dir, d))])
-    # self.classes = ['cat07 MasAptMotel', 'cat10 StripMall', 'cat11 L_ShopMall', 'cat17 LowRise', 'cat18 MidRise', 'cat19 HighRise', 'cat20 InstiBldg', 'cat21 MetalBldg', 'cat22 Canopy']
-    self.classes = [  'cat10 StripMall', 'cat11 L_ShopMall',  'cat18 MidRise', 'cat19 HighRise', 'cat21 MetalBldg', 'cat22 Canopy']
+    self.classes = ['cat07 MasAptMotel', 'cat10 StripMall', 'cat11 L_ShopMall', 'cat17 LowRise', 'cat18 MidRise', 'cat19 HighRise', 'cat20 InstiBldg', 'cat21 MetalBldg', 'cat22 Canopy']
+    # ---uncomment to use 6 classes
+    # self.classes = [  'cat10 StripMall', 'cat11 L_ShopMall',  'cat18 MidRise', 'cat19 HighRise', 'cat21 MetalBldg', 'cat22 Canopy']
     self.class_to_idx = {cls_name: i for i, cls_name in enumerate(self.classes)}
     
     self.images = []
@@ -33,7 +34,7 @@ class BuildingDataset(Dataset):
       if self.transform:
           image = self.transform(image)
           
-      return image, label
+      return image, label, img_path
 
   # generate class distribution of images
   def class_distribution(self):
