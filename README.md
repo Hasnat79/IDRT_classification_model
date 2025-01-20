@@ -18,6 +18,8 @@ The dataset is a subset of images of various building types collected by The Ins
 
 ## 2. Model Training
 - ### 2.1 Baseline model
+file: [train_cnn_baseline.py](src/train_cnn_baseline.py)
+
 The Baseline model is a simple Convolutional Neural Network (CNN) with three convolutional layers followed by fully connected layers for classification. 
   - Feature Extraction
     - Conv1: 3 → 64 channels, kernel=3x3, padding=1, MaxPool2x2
@@ -42,6 +44,7 @@ The Baseline model is a simple Convolutional Neural Network (CNN) with three con
     </details> -->
 
 - ### 2.2 Bob The Builder 
+  - file: [train_btb__.py](src/train_btb__.py)
   - As a visual backbone we used frozen Vision Transformer (ViT) - [vit-base-patch16-224](https://huggingface.co/google/vit-base-patch16-224)
   - We trained the last 5 transformer blocks of the pretrained vit-base-patch16-224 model.
   - The vit-base-patch16-224 model was pre-trained on ImageNet-21k (14M images, 21k classes) and further fine-tuned on ImageNet-1k (1.3M images, 1k classes).
