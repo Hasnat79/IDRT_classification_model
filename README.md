@@ -217,7 +217,7 @@ The table shows that Bob The Builder significantly outperforms heavily pre-train
 *6 classes: Excluding categories 7 (MasAptMotel), 17 (LowRise), and 20 (InstiBldg) due to low accuracy
 
 ## 4. HPRC Usage
-We utilized HPRC resources to train our model and infer pre-trained large visual language models. The example SLURM script used: [src/hprc.sh](hprc.sh)
+We utilized HPRC resources to train our model and infer pre-trained large visual language models. The example SLURM script used: [hprc.sh](src/hprc.sh)
 
 ## 5. Recommendation or Possible Proposal for Research Direction
 
