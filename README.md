@@ -70,6 +70,7 @@ The Baseline model is a simple Convolutional Neural Network (CNN) with three con
     </details> -->
 
 ## 3. Evaluation Results
+checkpoints: [gdrive](https://drive.google.com/drive/folders/11MH0oRZFibajfO2Mm-OSSgZ3lJC0f8bs?usp=sharing)
 <!-- Confusion matrices for different epochs of the baseline and finetuned ViT models can be found in the [figures](figures) folder. -->
 ### 3.1 Model Performance Analysis (Baseline CNN vs Bob The Builder)
 **Our proposed Bob The Builder (BTB) achieves 94.25% validation accuracy for 6 classes and 82.31% validation accuracy for 9 classes.**
