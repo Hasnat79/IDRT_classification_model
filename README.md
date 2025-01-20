@@ -107,7 +107,7 @@ The Baseline model is a simple Convolutional Neural Network (CNN) with three con
   </tr>
   <tr>
     <td rowspan="2">Bob The Builder</td>
-    <td>9 classes*</td>
+    <td>9 classes</td>
     <td>20 </td>
     <td><b>82.31 <span style="color: red;">(+25.36%) </b></td>
     <td><b>82 <span style="color: red;">(+22.39%) </b></td>
@@ -160,7 +160,7 @@ The table shows that Bob The Builder significantly outperforms heavily pre-train
   </tr>
   <tr style="background-color: cyan; color: black;">
     <td rowspan="2">Bob The Builder</td>
-    <td>9 classes*</td>
+    <td>9 classes</td>
     <td>20</td>
     <td><b>82.31</b></td>
     <td><b>82</b></td>
@@ -177,7 +177,7 @@ The table shows that Bob The Builder significantly outperforms heavily pre-train
   </tr>
   <tr style="background-color: cyan; color: black;">
     <td rowspan="2">CLIP (ViT Large Patch 14)</td>
-    <td>9 classes*</td>
+    <td>9 classes</td>
     <td>0 (zero-shot)</td>
     <td>29.22</td>
     <td>30</td>
@@ -194,7 +194,7 @@ The table shows that Bob The Builder significantly outperforms heavily pre-train
   </tr>
   <tr style="background-color: cyan; color: black;">
     <td rowspan="2">BLIP2 (blip2-opt-2.7b)</td>
-    <td>9 classes*</td>
+    <td>9 classes</td>
     <td>0 (zero-shot)</td>
     <td>9.54</td>
     <td>1</td>
