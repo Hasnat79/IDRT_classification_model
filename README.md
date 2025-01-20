@@ -1,6 +1,6 @@
 # Bob The Builder (BTB), a building classifier model
 ## 1. Dataset Overview
-The dataset is a subset of images of various building types collected by The Institute for a Disaster Resilient Texas (IDRT) and is not publicly available. 
+The dataset is a subset of images of various building types.
 
 | Dataset | Number of Images | Class Distribution |
 |---------|------------------|--------------------|
